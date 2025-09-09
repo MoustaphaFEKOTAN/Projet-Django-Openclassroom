@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Band(models.Model):
+
     # Ensuite, nous ajoutons un attribut de classe à notre classe name. 
     # À cet attribut, nous attribuons unCharField, qui est l'abréviation de Character Field. 
     # Il s'agira d'un champ qui stocke des données de type caractère/texte/chaîne, 
@@ -21,6 +22,8 @@ class Band(models.Model):
     active = models.fields.BooleanField(default=True)
     official_homepage = models.fields.URLField(null=True, blank=True)
 
+    def __str__(self):
+        return f'{self.name}'
 
 class Listing(models.Model):
 
