@@ -6,3 +6,8 @@ class Band(models.Model):
     # Il s'agira d'un champ qui stocke des données de type caractère/texte/chaîne, 
     # ce qui est le type de données approprié pour un nom.
     name = models.fields.CharField(max_length=100)
+
+
+class Listing(models.Model):
+    title = models.fields.CharField(max_length=100)
+
