@@ -12,6 +12,7 @@ def band_list(request):
     'bands/band_list.html',
     {'bands': bands})
 
+#   Détail de model
 def band_detail(request, band_id):
   try:
       band = Band.objects.get(id=band_id)
@@ -66,6 +67,7 @@ def contact(request):
             'listings/contact.html',
             {'form': form})
 
+#   Création de model
 def band_create(request):
     if request.method == 'POST':
         form = BandForm(request.POST)
@@ -83,6 +85,24 @@ def band_create(request):
             'bands/band_create.html',
             {'form': form})
 
+
+#   Mise à jour de model
+def band_update(request, band_id):
+    band = Band.objects.get(id=band_id)
+
+    if request.method == 'POST':
+        form = BandForm(request.POST, instance=band)
+        if form.is_valid():
+            # mettre à jour le groupe existant dans la base de données
+            form.save()
+            # rediriger vers la page détaillée du groupe que nous venons de mettre à jour
+            return redirect('band-detail', band.id)
+    else:
+        form = BandForm(instance=band)
+
+    return render(request,
+                'bands/band_update.html',
+                {'form': form})
 
 def articles(request):
     articles = Listing.objects.all()
