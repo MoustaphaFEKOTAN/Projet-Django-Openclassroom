@@ -21,7 +21,8 @@ from listings import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bands/', views.band_list, name='band-list'),
-    path('bands/<int:id>/', views.band_detail, name='band-detail'),
+    path('bands/<int:band_id>/', views.band_detail, name='band-detail'),
+    path('listing/band/<int:band_id>/', views.band_listing, name='band-listing'),
     path('listing/', views.articles),
     path('about-us/', views.about),
 ]

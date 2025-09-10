@@ -10,6 +10,6 @@ class BandAdmin(admin.ModelAdmin):  # nous insérons ces deux lignes..
 admin.site.register(Band, BandAdmin) # nous modifions cette ligne, en ajoutant un deuxième argument
 
 class ListingAdmin(admin.ModelAdmin):
-    list_display = ('title', 'year', 'type', 'sold','band')
+    list_display = ('title', 'year', 'type', 'sold','band_id','band_id')
 
 admin.site.register(Listing, ListingAdmin)

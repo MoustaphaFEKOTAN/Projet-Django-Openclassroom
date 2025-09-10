@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Groupes</h1>
+
+<ul>
+    {% for listing in listings %}
+    <li><a href="">{{ listing.title }}</a> - {{ listing.year }} - {{ listing.type }} - {% if listing.sold %}Vendu{% else %}Disponible{% endif %}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
+
