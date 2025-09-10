@@ -88,7 +88,11 @@ def band_create(request):
 
 #   Mise à jour de model
 def band_update(request, band_id):
-    band = Band.objects.get(id=band_id)
+    try:
+        band = Band.objects.get(id=band_id)
+    except Band.DoesNotExist:
+        return render(request,
+                      'bands/404.html', status=404)
 
     if request.method == 'POST':
         form = BandForm(request.POST, instance=band)
@@ -103,6 +107,28 @@ def band_update(request, band_id):
     return render(request,
                 'bands/band_update.html',
                 {'form': form})
+
+#   Suppression de model
+def band_delete(request, band_id):
+    try:
+        band = Band.objects.get(id=band_id)
+    except Band.DoesNotExist:
+        return render(request,
+                      'bands/404.html', status=404)
+
+    if request.method == 'POST':
+        # supprimer le groupe de la base de données
+        band.delete()
+        # rediriger vers la liste des groupes
+        return redirect('band-list')
+
+    # pas besoin de « else » ici. Si c'est une demande GET, continuez simplement
+
+    return render(request,
+                    'bands/band_delete.html',
+                    {'band': band})
+...
+
 
 def articles(request):
     articles = Listing.objects.all()
