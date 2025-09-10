@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from listings.models import Band,Listing
 from django.http import Http404
+from listings.forms import ContactUsForm
 
 def band_list(request):
     bands = Band.objects.all()
@@ -34,6 +35,14 @@ def band_listing(request, band_id):
           'bands/band_listing.html',
           {'listings': listings, 'band': band})
 
+
+
+
+def contact(request):
+  form = ContactUsForm()  # ajout d’un nouveau formulaire ici
+  return render(request,
+          'listings/contact.html',
+          {'form': form})  # passe ce formulaire au gabarit
 
 def articles(request):
     articles = Listing.objects.all()
