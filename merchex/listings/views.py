@@ -4,6 +4,7 @@ from listings.models import Band,Listing
 from django.http import Http404
 from listings.forms import ContactUsForm
 from django.core.mail import send_mail
+from django.shortcuts import redirect
 
 def band_list(request):
     bands = Band.objects.all()
@@ -53,6 +54,7 @@ def contact(request):
             from_email=form.cleaned_data['email'],
             recipient_list=['admin@merchex.xyz'],
         )
+        return redirect('contact')
     # si le formulaire n'est pas valide, nous laissons l'exécution continuer jusqu'au return
     # ci-dessous et afficher à nouveau le formulaire (avec des erreurs).
 
