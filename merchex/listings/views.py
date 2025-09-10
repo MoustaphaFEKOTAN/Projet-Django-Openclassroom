@@ -47,6 +47,7 @@ def contact(request):
 
         if form.is_valid():
             send_mail(
+                #form.cleaned_data est un dict contenant les données du formulaire après qu'elles ont subi le processus de validation
             subject=f'Message from {form.cleaned_data["name"] or "anonyme"} via MerchEx Contact Us form',
             message=form.cleaned_data['message'],
             from_email=form.cleaned_data['email'],
