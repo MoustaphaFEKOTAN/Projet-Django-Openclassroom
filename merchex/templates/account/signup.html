@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="signup-container">
+    <h2>Inscription</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-submit">S'inscrire</button>
+    </form>
+    <p>Déjà inscrit ? <a href="{% url 'account_login' %}">Connectez-vous ici</a></p>
+</div>
+{% endblock %}

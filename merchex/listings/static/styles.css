@@ -1,0 +1,63 @@
+/* * { background: red } */
+
+/* Container du formulaire */
+.signup-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Titre */
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Champs du formulaire */
+.signup-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Bouton */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #5a67d8;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #434190;
+}
+
+/* Liens */
+.signup-container a {
+    color: #5a67d8;
+    text-decoration: none;
+}
+
+.signup-container a:hover {
+    text-decoration: underline;
+}
+
+/* Paragraphes */
+.signup-container p {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
