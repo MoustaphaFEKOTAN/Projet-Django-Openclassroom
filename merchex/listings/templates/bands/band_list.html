@@ -5,9 +5,9 @@
 <h1>Groupes</h1>
 
 <ul>
- {% for band in bands %}
-  <li>{{ band.name }}</li>
- {% endfor %}
+    {% for band in bands %}
+    <li><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></li>
+  {% endfor %}
 </ul>
 
 {% endblock %}
