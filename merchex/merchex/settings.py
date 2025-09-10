@@ -32,6 +32,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "django.contrib.sites",   # <- requis
+    # allauth
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    # providers optionnels (ex : google)
+    "allauth.socialaccount.providers.google",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,6 +74,19 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"      # "username" | "email" | "username_email"
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = "none"     # "none" | "optional" | "mandatory"
+LOGIN_REDIRECT_URL = "bands/"
+
+
 
 WSGI_APPLICATION = 'merchex.wsgi.application'
 
