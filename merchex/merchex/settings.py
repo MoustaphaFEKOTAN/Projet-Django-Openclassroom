@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from django.urls import reverse_lazy
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,7 +86,7 @@ ACCOUNT_AUTHENTICATION_METHOD = "username_email"      # "username" | "email" | "
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = "none"     # "none" | "optional" | "mandatory"
-LOGIN_REDIRECT_URL = "bands/"
+LOGIN_REDIRECT_URL = reverse_lazy("band-list")    # rediriger vers la liste des groupes après connexion
 SITE_ID = 1
 
 
