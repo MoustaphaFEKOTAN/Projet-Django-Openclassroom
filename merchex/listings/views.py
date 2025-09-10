@@ -66,6 +66,11 @@ def contact(request):
             'listings/contact.html',
             {'form': form})
 
+def band_cretae(request):
+    return render(request,
+    'bands/bande_create.html') 
+
+
 def articles(request):
     articles = Listing.objects.all()
     return render(request,
