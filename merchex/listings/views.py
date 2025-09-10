@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from listings.models import Band,Listing
+from django.http import Http404
 
 def band_list(request):
     bands = Band.objects.all()
@@ -9,7 +10,12 @@ def band_list(request):
     {'bands': bands})
 
 def band_detail(request, id):
-  band = Band.objects.get(id=id)  # nous insérons cette ligne pour obtenir le Band avec cet id
+  try:
+      band = Band.objects.get(id=id)
+  except Band.DoesNotExist:
+        return render(request,
+          'bands/404.html', status=404)
+
   return render(request,
           'bands/band_detail.html',
           {'band': band}) # nous mettons à jour cette ligne pour passer le groupe au gabarit
