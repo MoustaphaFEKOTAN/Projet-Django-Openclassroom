@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     # providers optionnels (ex : google)
-    "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.google", #Pour authentifier via d'autres apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
