@@ -10,5 +10,18 @@
         <button type="submit" class="btn-submit">S'inscrire</button>
     </form>
     <p>Déjà inscrit ? <a href="{% url 'account_login' %}">Connectez-vous ici</a></p>
+
+</div>
+<div>
+    {% load socialaccount %}
+<h2>Se connecter</h2>
+
+{% providers_media_js %}
+
+{% for provider in socialaccount_providers %}
+    <a href="{% provider_login_url provider.id %}" class="btn-social">
+        Se connecter avec {{ provider.name }}
+    </a>
+{% endfor %}
 </div>
 {% endblock %}
